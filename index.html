@@ -5,6 +5,40 @@
     <meta charset="utf-8">
     <title>Michael Hegglin</title>
     <style>
+      .dropbtn {
+        background-color: #4CAF50;
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+      }
+
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      .dropdown-content a:hover {background-color: #ddd;}
+
+      .dropdown:hover .dropdown-content {display: block;}
+
+      .dropdown:hover .dropbtn {background-color: #3e8e41;}
 
     </style>
   </head>
@@ -21,8 +55,9 @@
         <button class="dropbtn">Navigation</button>
         <div class="dropdown-content">
           <a href="#skills_header">Skills</a>
-          <a href="#">Work Experience</a>
-          <a href="#">Link 3</a>
+          <a href="#work_experience_header">Work Experience</a>
+          <a href="#personal_projects_header">Personal Projects</a>
+          <a href="#hobbies_header">Hobbies</a>
         </div>
       </div>
 
@@ -57,7 +92,7 @@
       Include all my Cisco stuff here
       -->
     <div>
-      <h2>Work Experience</h2>
+      <h2 id="work_experience_header">Work Experience</h2>
 
       <h3>Software Testing Intern 2017 - Cisco</h3>
       <ul>
@@ -85,7 +120,7 @@
         - link to this code
       -->
     <div>
-      <h2>Personal Projects</h2>
+      <h2 id="personal_projects_header">Personal Projects</h2>
     </div>
 
     <!-- 
@@ -97,7 +132,7 @@
         - windsurfing
       -->
     <div>
-      <h2>Hobbies</h2>
+      <h2 id="hobbies_header">Hobbies</h2>
     </div>
     
     <script>

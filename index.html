@@ -84,7 +84,7 @@
 
       <h1>Michael Hegglin</h1>
       <img id="header-image" src="images/Header_Image.jpg" alt="mountain road" width="100%">
-      <p>blurb about me here</p>
+      <p>Hello! As you probably know my name is Michael, and I am a Cal Poly graduate class of 2020!</p>
     </div>
 
     <!-- 
@@ -241,9 +241,24 @@
       <h3>Trail Running</h3>
       <h3>Windsurfing</h3>
     </div>
+
+    <canvas id="canvas">
+      
+    </canvas>
     
     <script>
-      
+      function draw() {
+        var canvas = document.getElementById('canvas');
+        if (canvas.getContext) {
+          var ctx = canvas.getContext('2d');
+
+          ctx.fillRect(25, 25, 100, 100);
+          ctx.clearRect(45, 45, 60, 60);
+          ctx.strokeRect(50, 50, 50, 50);
+        }
+      }
+
+      draw();
     </script>
   </body>
 </html>

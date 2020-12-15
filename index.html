@@ -7,6 +7,18 @@
   
     <style>
 
+      html {
+        margin: -10px;
+        padding: -10px;
+      }
+
+      #canvas_div {
+        cursor: none;
+        margin: 0;
+        padding: 0;
+        background-color: rgb(35, 35, 35);
+      }
+
       /* Add a black background color to the top navigation */
       .topnav {
         background-color: #333;
@@ -18,21 +30,22 @@
         top of the webpage.
        */
       .dropbtn {
-        background-color: #4CAF50;
+        background-color: #64b5cb;
         color: white;
         padding: 16px;
         font-size: 16px;
+        min-width: 160px;
         border: none;
       }
 
       .dropdown {
-        position: relative;
-        display: inline-block;
+        float:left;
       }
 
       .dropdown-content {
         display: none;
         position: absolute;
+        left: 0;
         background-color: #f1f1f1;
         min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
@@ -48,42 +61,87 @@
 
       .dropdown-content a:hover {background-color: #ddd;}
       .dropdown:hover .dropdown-content {display: block;}
-      .dropdown:hover .dropbtn {background-color: #3e8e41;}
+      .dropdown:hover .dropbtn {background-color: #7eb5cb;}
+
+      .grid-container {
+        margin: 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        grid-gap: 10px 10px; 
+      }
+
+      .cell {
+        color: white;
+        font-size:25px;
+        text-align: center;
+        padding: 4rem;
+        border-radius: 25px;
+      }
+
+      .pp_images {
+        border-radius: 25px;
+      }
+
+      .cell-1 {
+        background: tan;
+      }
+      .cell-2 {
+        background: orange;
+      }
+      .cell-3 {
+        background: olive;
+      }
+      .cell-4 {
+        background: rosybrown;
+      }
+      .cell-5 {
+        background: lightseagreen;
+      }
+      .cell-6 {
+        background: coral;
+      }
+
+      #header { 
+        position: relative; 
+        width: 100%;
+      }
+
+      #my_name { 
+        position: absolute; 
+        top: 50px; 
+        right: 5%; 
+        color: white;
+      }
 
     </style>
   </head>
   <body>
     
     <!-- 
+      width: 100%;
       This div contains header information
         - picture/video of me and taco in snow
         - Name and contact information
         - little blurb of who I am
       -->
-    <div id="header">
+    <div class="heading subsection" id="header">
 
       <div class="topnav">
         <div class="dropdown">
-          <button class="dropbtn">Navigation</button>
+          <button class="dropbtn">Menu</button>
           <div class="dropdown-content">
+            <a href="#personal_projects_header">Contact</a>
+            <a href="#personal_projects_header">Personal Projects</a>
             <a href="#skills_header">Skills</a>
             <a href="#work_experience_header">Work Experience</a>
-            <a href="#personal_projects_header">Personal Projects</a>
             <a href="#hobbies_header">Hobbies</a>
-          </div>
-        </div>
-
-        <div class="dropdown">
-          <button class="dropbtn">Contact Information</button>
-          <div class="dropdown-content">
-            <p>email: mhegglinmichael@gmail.com</p>
-            <a href="https://www.linkedin.com/in/mhegglin/">LinkedIn</a>
           </div>
         </div>
       </div>
 
-      <h1>Michael Hegglin</h1>
       <img id="header-image" src="images/Header_Image.jpg" alt="mountain road" width="100%">
+      <h1 id="my_name">Michael Hegglin</h1>
       <p>Hello! As you probably know my name is Michael, and I am a Cal Poly graduate class of 2020!</p>
     </div>
 
@@ -189,39 +247,58 @@
       -->
     <div>
       <h2 id="personal_projects_header">Personal Projects</h2>
-      <p>put each of these things next to eachother in their own colorized boxes</p>
-      <h3>Machine Learning & Signal Processing - MBARI Joint Project</h3>
-      <p>
-        Worked with MBARI(Monterey Bay Aquarium Research Institute) to identify sperm whale 
-        clicks.  The team used unsupervised clustering models to sift through teribytes of data.
-        The purpose of this project is to develop a machine learning model that can detect or classify sperm whale clicks among many sounds recorded by the MARS hydrophone off the coast of MBARI.
-        The primary issue faced with that approach is the scarcity of labeled data — there are upwards of 250 gigabytes of data spanning multiple years, among which sperm whale clicks are not very frequent and require much time and biological expertise to identify, making it very difficult to gather a sizable and usable labeled data sets.
-      </p>
 
-      <h3>Tractor Hacking - iFixit Joint Project</h3>
-      <p>
-        Worked with iFixit to uncover John Deer tractor codes.  John Deere uses "security through obscurity" to process sensor signals within the tractor.  Due to this obscurity, farmers don't have the abilities to fix their own tractors.  The goal was to uncover the meaning of the codes, and create an OBDII like connector for tractors.
-      </p>
+      <div id="canvas_div">
+        <canvas id="circle_game_canvas" width="100" height="100">
+        </canvas>
+      </div>
 
-      <h3>Image Detection Butter Robot - Senior Project</h3>
-      <p>
-        Built a robot that identifies and butter bread using machine learning.  The machine learning model is run on a raspberry pi, which is also connected to motors and servos.  The model was trained used supervised techniques, and optimized to run on a raspberry pi.
-      </p>
-
-      <h3>Thrones - Android Application</h3>
-      <p>
-        This android application was an idea born from a group of cross-country runners.  The idea was to have an application that could find the user the nearest bathroom.  This was one of the first android applications I built!
-      </p>
-
-      <h3>Guitar Tuner - Android Application</h3>
-      <p>
-        This application was a project I made in conjunction with another project.  I was making a wooden electric guitar in the shop, and decided it would be cool to make an application that could tune the guitar I built.  I built the application using lots of audio libraries, and in the end it was a success!
-      </p>
-
-      <h3>The Circle Game Above!</h3>
-      <p>
-        This game was made just for the website!  I remember playing it in highschool to kill time during class, and I wanted to remake the game in my own JavaScript.
-      </p>
+      <div class="grid-container">
+      <div class="cell cell-1">
+        <h4>Machine Learning & Signal Processing - MBARI Joint Project</h4>
+        <img class="pp_images" id="MBARI-image" src="images/MBARI_Image.jpg" alt="Jelly fish" width="100%">
+        <p>
+          Worked with MBARI(Monterey Bay Aquarium Research Institute) to identify sperm whale 
+          clicks.  The team used unsupervised clustering models to sift through teribytes of data.
+          The purpose of this project is to develop a machine learning model that can detect or classify sperm whale clicks among many sounds recorded by the MARS hydrophone off the coast of MBARI.
+          The primary issue faced with that approach is the scarcity of labeled data — there are upwards of 250 gigabytes of data spanning multiple years, among which sperm whale clicks are not very frequent and require much time and biological expertise to identify, making it very difficult to gather a sizable and usable labeled data sets.
+        </p>
+      </div>
+      <div class="cell cell-2">
+        <h4>Tractor Hacking - iFixit Joint Project</h4>
+        <img class="pp_images" id="tractor-image" src="images/calpoly_tractor.jpg" alt="tractor" width="100%">
+        <p>
+          Worked with iFixit to uncover John Deer tractor codes.  John Deere uses "security through obscurity" to process sensor signals within the tractor.  Due to this obscurity, farmers don't have the abilities to fix their own tractors.  The goal was to uncover the meaning of the codes, and create an OBDII like connector for tractors.
+        </p>
+      </div>
+      <div class="cell cell-3">
+        <h4>Image Detection Butter Robot - Senior Project</h4>
+        <img class="pp_images" id="butter-robot-image" src="images/butter_robot.jpg" alt="robot" width="100%">
+        <p>
+          Built a robot that identifies and butter bread using machine learning.  The machine learning model is run on a raspberry pi, which is also connected to motors and servos.  The model was trained used supervised techniques, and optimized to run on a raspberry pi.
+        </p>
+      </div>
+      <div class="cell cell-4">
+        <h4>Thrones - Android Application</h4>
+        <img class="pp_images" id="thrones-image" src="images/thrones.png" alt="thrones logo" width="100%">
+        <p>
+          This android application was an idea born from a group of cross-country runners.  The idea was to have an application that could find the user the nearest bathroom.  I accomplished this by loading in the Google Maps dataset of all available gas stations and fast food restaurants.  I then added a function to allow users to add to this database.  This was one of the first android applications I built!
+        </p>
+      </div>
+      <div class="cell cell-5">
+        <h4>Guitar Tuner - Android Application</h4>
+        <img class="pp_images" id="guitar-image" src="images/guitar.jpg" alt="guitar" width="100%">
+        <p>
+          This application was a project I made in conjunction with another project.  I was making a wooden electric guitar in the shop, and decided it would be cool to make an application that could tune the guitar I built.  I built the application using lots of audio libraries, and in the end it was a success!
+        </p>
+      </div>
+      <div class="cell cell-6">
+        <h4>The Circle Game Above!</h4>
+        <img class="pp_images" id="circle-game-image" src="images/circle_game.jpg" alt="circle game" width="100%">
+        <p>
+          This game was made just for the website!  I remember playing it in highschool to kill time during class, and I wanted to remake the game in my own JavaScript.  The goal of this project was to improve my front end skills.  
+        </p>
+      </div>
     </div>
 
     <!-- 
@@ -247,18 +324,319 @@
     </canvas>
     
     <script>
-      function draw() {
-        var canvas = document.getElementById('canvas');
+      /* canvas position attributes for relative page position */
+      var canvasPos = getPosition();
+      var mouseX = 0;
+      var mouseY = 0;
+
+      /* canvas attributes for size and mouse following */
+
+      // const availScreenWidth  = window.screen.availWidth;
+      // const availScreenHeight = window.screen.availHeight;
+
+      var canvas = document.getElementById('circle_game_canvas');
+      canvas.width = document.documentElement.scrollWidth; 
+      canvas.height = window.innerHeight - (window.innerHeight/5); 
+      canvas.addEventListener('mousemove', setMousePosition);
+
+      /* adds the click listener to restart/start the game */
+      document.addEventListener("click", onMouseClick, false);
+
+      /* main player attributes */
+      var playerCount = 0;
+      var playerRadius = 10;
+      var playerCircle = new Circle("white", playerRadius, mouseX, mouseY);
+      playerCircle.alive = false;
+
+      /* list of enemies on the screen + their directions(in degrees) */
+
+      var enemies = new Map();
+      var enemiesKilled = 0;
+
+      //This is a Circle object
+      function Circle(color, radius, positionX, positionY) {
+        this.color = color;
+        this.radius = radius;
+        this.positionX = positionX;
+        this.positionY = positionY;
+        this.alive = true;
+      }
+
+      /*
+       *  Description:
+       *    This method draws a circle on the screen with 
+       *    the circle objects attributes
+       */
+      Circle.prototype.createCircle = function() {
         if (canvas.getContext) {
           var ctx = canvas.getContext('2d');
 
-          ctx.fillRect(700, 1700, 100, 100);
-          ctx.clearRect(45, 45, 60, 60);
-          ctx.strokeRect(50, 50, 50, 50);
+          var startAngle = 0;                         // Starting point on circle
+          var endAngle = Math.PI * 2;                 // End point on circle
+          var anticlockwise = true;                   // clockwise or anticlockwise
+
+          ctx.beginPath();
+          ctx.fillStyle = this.color;
+          ctx.arc(this.positionX, this.positionY, this.radius, startAngle, endAngle, anticlockwise);
+          ctx.fill();
+          ctx.closePath();
         }
       }
 
-      draw();
+      /*
+       *  Description:
+       *    This method deletes the reference to 
+       *    the circle objects, and helps the garabage 
+       *    collector
+       */
+      Circle.prototype.deleteCircleReference = function() {
+        delete this;
+      }
+
+      /*
+       *  Description:
+       *    This method grows a player, based
+       *    on how big in size the circel eaten was
+       */
+      Circle.prototype.growPlayer = function(contactedCircle) {
+        this.radius += contactedCircle.radius / 10;
+        enemiesKilled += 1;
+      }
+
+      function getPosition(el) {
+        var xPosition = 0;
+        var yPosition = 0;
+
+        while (el) {
+          xPosition += (el.offsetLeft - el.scrollLeft + el.clientLeft);
+          yPosition += (el.offsetTop - el.scrollTop + el.clientTop);
+          el = el.offsetParent;
+        }
+
+        return {
+          x: xPosition,
+          y: yPosition
+        };
+
+      }    
+
+      /*
+       * Description:
+       * 
+       */
+      function setMousePosition(e) {
+        mouseX = e.clientX - canvasPos.x;
+        mouseY = e.clientY - canvasPos.y;
+      }   
+
+      /*
+       * Description:
+       *  This method restarts the game for the user
+       *  waits for the player to be dead, and the user to click
+       */
+      function onMouseClick() {
+        if (!playerCircle.alive) {
+          playerCircle.alive = true;
+          playerCircle.radius = playerRadius;
+          enemiesKilled = 0;
+
+          for (const[key, value] of enemies.entries()) {
+            key.alive = false;
+            delete key;
+          }
+
+        }
+      }
+
+      /* 
+       * Description:
+       *   Test to see wether or not the 
+       *   player has hit an enemy
+       */
+      function collisionDetection() {
+        console.log("I'm out");
+        for (const[key, value] of enemies.entries()) {
+          differenceX = playerCircle.positionX - key.positionX;
+          differenceY = playerCircle.positionY - key.positionY;
+          distSq = ((differenceX)*(differenceX)) + ((differenceY)*(differenceY));
+          distSq = Math.pow(distSq, .5);
+
+          if (distSq <= key.radius + playerCircle.radius && key.alive && playerCircle.alive) {
+            // a collision occurred with the enemies[i] enemy
+            if (playerCircle.radius < key.radius) {
+              // need to go back to the start screen
+              playerCircle.alive = false;
+
+            } else {
+              playerCircle.growPlayer(key);
+              key.alive = false;
+            }
+          }
+        }
+      }
+
+      /* 
+       * Description:
+       *  Generates an integer between 
+       *  0 and the max parameter
+       */
+      function getRandomInt(max, min) {
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+
+      /*
+       * Description:
+       *  Causes enemies to spawn off screen
+       */
+      function generateOffScreenInt(offset, height, width, degree) {
+        var offScreenPosX = 0;
+        var offScreenPosY = 0;
+
+        if (degree <= 90 && degree >= 0) {
+          offScreenPosX = getRandomInt(0, 0 - offset);
+          offScreenPosY = getRandomInt(height, 0);
+
+        } else if (degree <= 180 && degree >= 90) {
+          offScreenPosX = getRandomInt(width, 0);
+          offScreenPosY = getRandomInt(height, height + offset);
+
+        } else if (degree <= 270 && degree >= 180) {
+          offScreenPosX = getRandomInt(width, 0);
+          offScreenPosY = getRandomInt(0, 0 - offset);
+
+        } else {
+          offScreenPosX = getRandomInt(width, 0);
+          offScreenPosY = getRandomInt(0, 0 - offset);
+        }
+
+        return [offScreenPosX, offScreenPosY];
+      }
+
+      /*
+       * Description:
+       *  This function randomly spawns 
+       *  enemies of certain sizes depending on
+       *  the size of the player
+       */
+      function spawnEnemies() {
+        var colors = ["aqua", "blue", "fuchsia", "gray", 
+                      "green", "lime", "maroon", "navy", 
+                      "olive", "orange", "purple", "red", 
+                      "silver", "teal", "yellow"];
+
+        if (enemies.size < 100) {
+          // generates a random color from the set of 
+          // avaliable colors
+          let tempIndex = getRandomInt(colors.length, 0);
+          let randColor = colors[tempIndex];
+
+          // generates angle circle will move at
+          var tempDegree = getRandomInt(1000, 0) % 360;
+
+          // Generates a position of spawn off screen
+          let ranPositions = generateOffScreenInt(100, canvas.height, canvas.width, tempDegree);
+          let ranPositionX = ranPositions[0];
+          let ranPositionY = ranPositions[1];
+
+          // creates the size of the enemy
+          let tempSize = getRandomInt(playerCircle.radius * 3, playerCircle.radius / 5);
+
+          // creates a curcle object, and adds it to list of enemies
+          var tempCircle = new Circle(randColor, tempSize, ranPositionX, ranPositionY);
+          enemies.set(tempCircle, tempDegree);
+        }
+      }
+
+      /*
+       * Description:
+       *  This function updates the enemies movements,
+       *  so that the circles actually move in the
+       *  game
+       * 
+
+        need to add variations for speed
+
+        size equation isn't working well either
+
+       */
+      function updateEnemiesMovement() {
+        for (const[key, value] of enemies.entries()) {
+          if (key.alive) {
+            // if it is alive, draw it in 
+            // an updated state based off its
+            // speed and angle
+
+            let xUpdate = (1/key.radius) * 20 * Math.cos(value);
+            let yUpdate = (1/key.radius) * 20 * Math.sin(value);
+
+            key.positionX += xUpdate;
+            key.positionY += yUpdate;
+
+            key.createCircle();
+          } else {
+            enemies.delete(key);
+          }
+
+          // if it goes off the screen, delete it
+          if (key.positionY - key.radius > (canvas.height + 200) ||
+              key.positionY + key.radius < (0 - 200) ||
+              key.positionX - key.radius > (canvas.width + 200) ||
+              key.positionX + key.radius < (0 - 200)) {
+
+            enemies.delete(key);
+          }
+        }
+      }
+
+      /*
+       * Description:
+       *    updates the circles for their movements
+       *    - run through all the circle objects, shift 
+       *      them specific to their angle of movement
+       */
+      function update() {
+        if (canvas.getContext) {
+          var ctx = canvas.getContext('2d');
+
+          /* this clears the rectangle */
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+          /* This draws the circle where the mouse is */
+          if (playerCircle.alive) {
+            playerCircle.positionX = mouseX;
+            playerCircle.positionY = mouseY;
+            playerCircle.createCircle();
+          } else {
+            let textString = "Click to play!";
+            ctx.font = "60px Arial";
+            ctx.textAlign = "center";
+            ctx.fillStyle = "white";
+            ctx.fillText(textString, canvas.width/2, canvas.height/2 - 100); 
+
+            textString = "(Eat smaller circles, avoid bigger circles)";
+            ctx.font = "30px Arial";
+            ctx.fillText(textString, canvas.width/2, canvas.height/2 - 50); 
+
+            textString = "Circles Eaten: " + enemiesKilled;
+            ctx.fillText(textString, canvas.width/2, canvas.height/2); 
+          }
+
+          // this updates enemy movements along with collision detection
+          spawnEnemies();
+          updateEnemiesMovement();
+          collisionDetection();
+
+          requestAnimationFrame(update);
+        }
+      };
+
+      /* function is called to update the canvas */
+      update();
+
+      /* example of how to make a circle on the canvas */
+      // var temp_circle = new Circle("green", 50, 50, 50);
+      // temp_circle.createCircle();
+      
     </script>
   </body>
 </html>

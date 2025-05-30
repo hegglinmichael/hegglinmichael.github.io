@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photography Showcase</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: white;
+            text-align: center;
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+            background-color: #444;
+        }
+        .navbar a {
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .gallery-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 80vh;
+        }
+        .arrow {
+            cursor: pointer;
+            font-size: 50px;
+            padding: 20px;
+            user-select: none;
+        }
+        .photo {
+            max-width: 70%;
+            border-radius: 10px;
+            transition: opacity 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="#">About Me</a>
+        <a href="#">Gallery</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <div class="gallery-container">
+        <div class="arrow" onclick="prevPhoto()">❮</div>
+        <img id="mainPhoto" class="photo" src="photo1.jpg" alt="Photography">
+        <div class="arrow" onclick="nextPhoto()">❯</div>
+    </div>
+
+    <script>
+        const photos = ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg"];
+        let currentPhoto = 0;
+
+        function updatePhoto() {
+            document.getElementById("mainPhoto").src = photos[currentPhoto];
+        }
+
+        function nextPhoto() {
+            currentPhoto = (currentPhoto + 1) % photos.length;
+            updatePhoto();
+        }
+
+        function prevPhoto() {
+            currentPhoto = (currentPhoto - 1 + photos.length) % photos.length;
+            updatePhoto();
+        }
+    </script>
+
+</body>
+</html>

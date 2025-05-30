@@ -29,6 +29,8 @@
             align-items: center;
             justify-content: center;
             height: 80vh;
+            position: relative;
+            overflow: hidden;
         }
         .photo-preview {
             width: 15%;
@@ -43,7 +45,17 @@
         .photo-main {
             max-width: 60%;
             border-radius: 10px;
-            transition: opacity 0.5s ease-in-out;
+            transition: transform 0.5s ease-in-out, opacity 0.3s;
+            position: absolute;
+            z-index: 2;
+        }
+        .photo-enter {
+            transform: translateX(100%) scale(0.8);
+            opacity: 0;
+        }
+        .photo-exit {
+            transform: translateX(-100%) scale(0.8);
+            opacity: 0;
         }
     </style>
 </head>
@@ -65,23 +77,40 @@
         const photos = ["./gallery_img/SalmonBerryYellow.jpeg", "./gallery_img/CaliforniaPoppy.jpeg", "./gallery_img/Discovery.jpeg"];
         let currentPhoto = 0;
 
-        function updatePhotos() {
-            document.getElementById("mainPhoto").src = photos[currentPhoto];
+        function updatePhotos(direction) {
+            const mainPhoto = document.getElementById("mainPhoto");
+
+            // Add exit animation class
+            mainPhoto.classList.add("photo-exit");
+
+            setTimeout(() => {
+                currentPhoto = direction === "next" 
+                    ? (currentPhoto + 1) % photos.length 
+                    : (currentPhoto - 1 + photos.length) % photos.length;
+
+                // Change the photo
+                mainPhoto.src = photos[currentPhoto];
+
+                // Reset classes and apply enter animation
+                mainPhoto.classList.remove("photo-exit");
+                mainPhoto.classList.add("photo-enter");
+
+                setTimeout(() => {
+                    mainPhoto.classList.remove("photo-enter");
+                }, 500);
+            }, 300);
+
             document.getElementById("prevPhoto").src = photos[(currentPhoto - 1 + photos.length) % photos.length];
             document.getElementById("nextPhoto").src = photos[(currentPhoto + 1) % photos.length];
         }
 
         function nextPhoto() {
-            currentPhoto = (currentPhoto + 1) % photos.length;
-            updatePhotos();
+            updatePhotos("next");
         }
 
         function prevPhoto() {
-            currentPhoto = (currentPhoto - 1 + photos.length) % photos.length;
-            updatePhotos();
+            updatePhotos("prev");
         }
-
-        updatePhotos();
     </script>
 
 </body>

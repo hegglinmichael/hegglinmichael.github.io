@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Portfolio</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+        .sidebar img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+        .sidebar ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .content {
+            margin-left: 270px;
+            padding: 20px;
+            width: 70%;
+        }
+        .section {
+            margin-bottom: 50px;
+        }
+        h2 {
+            border-bottom: 2px solid #444;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <img src="your-photo.jpg" alt="Your Photo">
+        <h2>Your Name</h2>
+        <ul>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#about">About Me</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="section" id="projects">
+            <h2>Projects</h2>
+            <p>Showcase your best work here.</p>
+        </div>
+
+        <div class="section" id="resume">
+            <h2>Resume</h2>
+            <p>Provide a brief overview of your professional experience.</p>
+        </div>
+
+        <div class="section" id="skills">
+            <h2>Skills</h2>
+            <p>Highlight your strengths and expertise.</p>
+        </div>
+
+        <div class="section" id="about">
+            <h2>About Me</h2>
+            <p>Share your story and what drives you.</p>
+        </div>
+    </div>
+
+</body>
+</html>

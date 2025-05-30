@@ -30,14 +30,18 @@
             justify-content: center;
             height: 80vh;
         }
-        .arrow {
+        .photo-preview {
+            width: 15%;
             cursor: pointer;
-            font-size: 50px;
-            padding: 20px;
-            user-select: none;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+            border-radius: 8px;
         }
-        .photo {
-            max-width: 70%;
+        .photo-preview:hover {
+            opacity: 1;
+        }
+        .photo-main {
+            max-width: 60%;
             border-radius: 10px;
             transition: opacity 0.5s ease-in-out;
         }
@@ -52,28 +56,32 @@
     </div>
 
     <div class="gallery-container">
-        <div class="arrow" onclick="prevPhoto()">❮</div>
-        <img id="mainPhoto" class="photo" src="photo1.jpg" alt="Photography">
-        <div class="arrow" onclick="nextPhoto()">❯</div>
+        <img id="prevPhoto" class="photo-preview" onclick="prevPhoto()" src="photo4.jpg" alt="Previous Photo">
+        <img id="mainPhoto" class="photo-main" src="photo1.jpg" alt="Photography">
+        <img id="nextPhoto" class="photo-preview" onclick="nextPhoto()" src="photo2.jpg" alt="Next Photo">
     </div>
 
     <script>
         const photos = ["photo1.jpg", "photo2.jpg", "photo3.jpg", "photo4.jpg"];
         let currentPhoto = 0;
 
-        function updatePhoto() {
+        function updatePhotos() {
             document.getElementById("mainPhoto").src = photos[currentPhoto];
+            document.getElementById("prevPhoto").src = photos[(currentPhoto - 1 + photos.length) % photos.length];
+            document.getElementById("nextPhoto").src = photos[(currentPhoto + 1) % photos.length];
         }
 
         function nextPhoto() {
             currentPhoto = (currentPhoto + 1) % photos.length;
-            updatePhoto();
+            updatePhotos();
         }
 
         function prevPhoto() {
             currentPhoto = (currentPhoto - 1 + photos.length) % photos.length;
-            updatePhoto();
+            updatePhotos();
         }
+
+        updatePhotos();
     </script>
 
 </body>

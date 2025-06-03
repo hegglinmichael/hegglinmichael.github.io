@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>My Travel Map</title>
-  <link rel="stylesheet" href="style.css"/>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>🌍 My Travel Map</h1>
-  <div id="map"></div>
+  <div class="map-container">
+    <!-- Inline or external SVG -->
+    <object id="svgMap" type="image/svg+xml" data="world.svg"></object>
+  </div>
   <script src="data.js"></script>
   <script src="script.js"></script>
 </body>

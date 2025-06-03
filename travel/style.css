@@ -1,10 +1,21 @@
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: sans-serif;
   text-align: center;
+  margin: 0;
+  background: #f4f4f4;
 }
 
-#map {
-  height: 90vh;
+h1 {
+  margin: 20px;
+}
+
+.map-container {
   width: 100%;
+  max-width: 1000px;
+  margin: auto;
+}
+
+object {
+  width: 100%;
+  height: auto;
 }
